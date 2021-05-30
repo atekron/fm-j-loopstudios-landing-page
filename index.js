@@ -1,5 +1,7 @@
 console.log("hello");
+const largeScreen = window.matchMedia("(min-width: 700px)");
 
+// open and close menu on small screens
 function mobileMenu() {
   console.log("hi");
   const hamburgerBtn = document.querySelector(".header__mobile-hamburger");
@@ -16,3 +18,23 @@ function mobileMenu() {
     mobileMenu.style.display = "none";
   }
 }
+
+function showImagesForScreenSize(mediaScreen) {
+  const galleryImages = document.querySelectorAll(".gallery__item");
+
+  if (mediaScreen.matches) {
+    galleryImages.forEach((item) => {
+      const imgSource = item.children[0].src.replace("mobile", "desktop");
+      item.children[0].src = imgSource;
+    });
+  } else {
+    galleryImages.forEach((item) => {
+      const imgSource = item.children[0].src.replace("desktop", "mobile");
+      item.children[0].src = imgSource;
+    });
+  }
+}
+
+//replase images on resize
+showImagesForScreenSize(largeScreen);
+largeScreen.addEventListener("change", showImagesForScreenSize);

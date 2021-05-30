@@ -270,3 +270,19 @@ body {
 .footer__copyrights {
   color: var(--dark-gray);
 }
+
+/* desktop layout */
+@media screen and (min-width: 700px) {
+  .header {
+    position: relative;
+    padding: 2rem 1rem;
+    min-height: 60rem;
+    color: white;
+    background-image: url("/images/desktop/image-hero.jpg");
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+  }
+}
