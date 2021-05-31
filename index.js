@@ -1,5 +1,5 @@
 console.log("hello");
-const largeScreen = window.matchMedia("(min-width: 700px)");
+const largeScreen = window.matchMedia("(min-width: 900px)");
 
 // open and close menu on small screens
 function mobileMenu() {
@@ -21,17 +21,26 @@ function mobileMenu() {
 
 function showImagesForScreenSize(mediaScreen) {
   const galleryImages = document.querySelectorAll(".gallery__item");
+  const aboutImg = document.querySelector(".about__image");
 
   if (mediaScreen.matches) {
     galleryImages.forEach((item) => {
       const imgSource = item.children[0].src.replace("mobile", "desktop");
       item.children[0].src = imgSource;
     });
+    aboutImg.children[0].src = aboutImg.children[0].src.replace(
+      "mobile",
+      "desktop"
+    );
   } else {
     galleryImages.forEach((item) => {
       const imgSource = item.children[0].src.replace("desktop", "mobile");
       item.children[0].src = imgSource;
     });
+    aboutImg.children[0].src = aboutImg.children[0].src.replace(
+      "desktop",
+      "mobile"
+    );
   }
 }
 
