@@ -199,6 +199,7 @@ body {
   top: 0;
   left: 0;
   z-index: 1;
+  transition: all 0.4s;
 }
 .gallery__item > h4 {
   color: white;
@@ -213,6 +214,24 @@ body {
   left: 2rem;
   bottom: 2rem;
   z-index: 2;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.gallery__item:hover h4 {
+  color: black;
+}
+
+.gallery__item:hover::after {
+  content: "";
+  cursor: pointer;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .gallery__btn {
@@ -233,6 +252,8 @@ body {
   cursor: pointer;
   padding: 1rem 3.5rem;
   letter-spacing: 0.5rem;
+  background-color: black;
+  color: white;
 }
 
 /* footer */
@@ -388,4 +409,45 @@ body {
     text-align: left;
     /* padding-right: 3rem; */
   }
+
+  .gallery {
+    position: relative;
+  }
+
+  .gallery__title {
+    text-align: left;
+    margin-left: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .gallery__btn {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    margin-top: 0;
+  }
+
+  .gallery__content {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .gallery__item {
+    flex: 1 1 20%;
+  }
+
+  /* .gallery__item:hover h4 {
+    color: black;
+  }
+
+  .gallery__item:hover::after {
+    content: "";
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  } */
 }
